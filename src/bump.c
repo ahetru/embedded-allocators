@@ -17,6 +17,7 @@ void init_bump_alloc(bump_allocator_t *a, uint8_t *heap_start)
   a->heap = heap_start;
   a->size = HEAP_SIZE;
   a->offset = 0;
+  a->prev_offset= 0;
 }
 
 void *bump_alloc(bump_allocator_t *a, size_t n)
