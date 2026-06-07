@@ -1,1 +1,8 @@
-#include "../embedded_allocator.h"
+#include "../embedded_allocators.h"
+#include <stdio.h>
+
+int main(void)
+{
+  printf("Hello World!\n");
+  return 0;
+}

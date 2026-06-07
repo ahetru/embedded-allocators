@@ -1,4 +1,4 @@
-#include "../embedded-allocators.h"
+#include "../embedded_allocators.h"
 #include <stdio.h>
 
 uint8_t heap[HEAP_SIZE];
@@ -36,19 +36,10 @@ void *reset_alloc(bump_allocator_t *a)
     heap[i] = 0;
   a->offset = 0;
   a->prev_offset = 0;
+  return (void *)a->heap;
 }
 
-static void  bump_alloc_info(bump_allocator_t *a)
+void  bump_alloc_info(bump_allocator_t *a)
 {
   printf("heap addr: %p\noffset: %lu\nprev offset: %lu\nsize: %lu\n", a->heap, a->offset, a->prev_offset, a->size);
-}
-
-int main(void)
-{
-  bump_allocator_t a;
-  init_bump_alloc(&a, heap);
-
-  while (bump_alloc(&a, 2048))
-    bump_alloc_info(&a);
-  return 0;
 }
