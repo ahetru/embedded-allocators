@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#ifndef internal
+# define internal static
+#endif
+
 typedef struct bump_allocator_s
 {
   uint8_t *buffer;
