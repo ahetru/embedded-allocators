@@ -1,8 +1,14 @@
 #include "../embedded_allocators.h"
-#include <stdio.h>
+#include "unity.h"
+
+void setUp(void) {
+}
+
+void tearDown(void) {
+}
 
 int main(void)
 {
-  printf("Hello World!\n");
-  return 0;
+    UNITY_BEGIN();
+    return UNITY_END();
 }
