@@ -30,6 +30,14 @@ void *bump_alloc(bump_allocator_t *a, size_t n)
   return (void *)a->heap + a->prev_offset;
 }
 
+void *reset_alloc(bump_allocator_t *a)
+{
+  for (size_t i = 0; i < a->size; ++i)
+    heap[i] = 0;
+  a->offset = 0;
+  a->prev_offset = 0;
+}
+
 static void  bump_alloc_info(bump_allocator_t *a)
 {
   printf("heap addr: %p\noffset: %lu\nprev offset: %lu\nsize: %lu\n", a->heap, a->offset, a->prev_offset, a->size);
@@ -44,6 +52,3 @@ int main(void)
     bump_alloc_info(&a);
   return 0;
 }
-
-
-
